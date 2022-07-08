@@ -1,0 +1,143 @@
+{
+  "Routes": [
+    {
+      "UseServiceDiscovery": true,
+      "DownstreamPathTemplate": "/api/Airline/findall",
+      "DownstreamScheme": "https",
+      //"ServiceName": "airlineService",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44337
+        }
+      ],
+      "UpstreamPathTemplate": "/api/gateway/airline/findall",
+      "UpstreamHttpMethod": [ "Get" ]
+    },
+
+    {
+      "UseServiceDiscovery": true,
+      "DownstreamPathTemplate": "/api/Airline/airlinereg",
+      "DownstreamScheme": "https",
+      //"ServiceName": "airlineService",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44337
+        }
+      ],
+      "UpstreamPathTemplate": "/api/v1.0/flight/airline/register",
+      "UpstreamHttpMethod": [ "Post" ]
+    },
+
+
+    {
+      "UseServiceDiscovery": true,
+      "DownstreamPathTemplate": "/api/Airline/airlineblock/{airlineid}",
+      "DownstreamScheme": "https",
+      //"ServiceName": "airlineService",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44337
+        }
+      ],
+      "UpstreamPathTemplate": "/api/v1.0/flight/booking/block/{airlineid}",
+      "UpstreamHttpMethod": [ "Put" ]
+    },
+
+    {
+      "UseServiceDiscovery": true,
+      "DownstreamPathTemplate": "/api/Airline/reginv",
+      "DownstreamScheme": "https",
+      //"ServiceName": "airlineService",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44337
+        }
+      ],
+      "UpstreamPathTemplate": "/api/v1.0/flight/airline/inventory/add",
+      "UpstreamHttpMethod": [ "Post" ]
+    },
+    {
+      "UseServiceDiscovery": true,
+      "DownstreamPathTemplate": "/api/Booking/booking",
+      "DownstreamScheme": "https",
+      //"ServiceName": "bookingService",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44343
+        }
+      ],
+      "UpstreamPathTemplate": "/api/v1.0/flight/booking",
+      "UpstreamHttpMethod": [ "Post" ]
+    },
+    {
+      "UseServiceDiscovery": true,
+      "DownstreamPathTemplate": "/api/Booking/cancel/{pnr}",
+      "DownstreamScheme": "https",
+      //"ServiceName": "bookingService",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44343
+        }
+      ],
+      "UpstreamPathTemplate": "/api/v1.0/flight/booking/cancel/{pnr}",
+      "UpstreamHttpMethod": [ "Delete" ]
+    },
+    {
+      "UseServiceDiscovery": true,
+      "DownstreamPathTemplate": "/api/Search/searchrec",
+      "DownstreamScheme": "https",
+      //"ServiceName": "searchService",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44354
+        }
+      ],
+      "UpstreamPathTemplate": "/api/v1.0/flight/search",
+      "UpstreamHttpMethod": [ "Get" ]
+    },
+    {
+      "UseServiceDiscovery": true,
+      "DownstreamPathTemplate": "/api/Search/searchbypnr/{pnr}",
+      "DownstreamScheme": "https",
+      //"ServiceName": "searchService",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44354
+        }
+      ],
+      "UpstreamPathTemplate": "/api/v1.0/flight/ticket/{pnr}",
+      "UpstreamHttpMethod": [ "Get" ]
+    },
+    {
+      "UseServiceDiscovery": true,
+      "DownstreamPathTemplate": "/api/Search/searchbyemail/{emailId}",
+      "DownstreamScheme": "https",
+      //"ServiceName": "searchService",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44354
+        }
+      ],
+      "UpstreamPathTemplate": "/api/v1.0/flight/booking/history/{emailId}",
+      "UpstreamHttpMethod": [ "Get" ]
+    }
+   
+
+  ],
+  "GlobalConfiguration": {
+    "ServiceDiscoveryProvider": {
+      "Host": "localhost",
+      "Port": "8500",
+      "Type": "Consul"
+    }
+  }
+}
